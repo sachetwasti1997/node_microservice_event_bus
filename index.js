@@ -17,18 +17,18 @@ app.post('/events', async (req, res) => {
     console.log(event);
     events.push(event)
 
-    await axios.post(BASE_URL+"4000"+EVENTS_ENDPOINT, event).catch(err => {
+    await axios.post("http://posts-clusterip-srv:4000/events", event).catch(err => {
         console.log(err.message);
     });
-    await axios.post(BASE_URL+"4001"+EVENTS_ENDPOINT, event).catch(err => {
-        console.log(err.message);
-    });
-    await axios.post(BASE_URL+"4002"+EVENTS_ENDPOINT, event).catch(err => {
-        console.log(err.message);
-    });
-    await axios.post(BASE_URL+"4003"+EVENTS_ENDPOINT, event).catch(err => {
-        console.log(err.message);
-    });
+    // await axios.post(BASE_URL+"4001"+EVENTS_ENDPOINT, event).catch(err => {
+    //     console.log(err.message);
+    // });
+    // await axios.post(BASE_URL+"4002"+EVENTS_ENDPOINT, event).catch(err => {
+    //     console.log(err.message);
+    // });
+    // await axios.post(BASE_URL+"4003"+EVENTS_ENDPOINT, event).catch(err => {
+    //     console.log(err.message);
+    // });
 
     res.status(200).send({"status": "OK"});
 });
